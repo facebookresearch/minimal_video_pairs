@@ -1,0 +1,8 @@
+moviepy==1.0.3
+huggingface-hub
+tensorflow-datasets==4.9.3
+tensorflow==2.18.0
+pillow
+gcsfs==2024.10.0
+opencv-python==4.10.0.84
+easydict
