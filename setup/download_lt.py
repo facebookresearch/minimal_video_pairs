@@ -43,12 +43,24 @@ def process_slice(slice_index, num_slices):
 
     captions = {}
 
-    benchmark = json.load(open('../test.json', 'r'))
+    data_names = [
+        "human_object_interactions",
+        "intuitive_physics",
+        "robot_object_interactions",
+        "temporal_reasoning",
+    ]
+    splits = ["mini", "full"]
+
+    video_ids = []
+    for data_name in data_names:
+        for split in splits:
+            dt = load_dataset("facebook/minimal_video_pairs", data_name, split=split)
+            video_ids.extend([x.lstrip("/") for x in dt["video_path"]])
+
     ids = set()
-    for x in benchmark:
-        if x['source'] == 'language_table':
-            ids.add(int(x['video_id1'].split('_')[1]))
-            ids.add(int(x['video_id2'].split('_')[1]))
+    for x in video_ids:
+        if x.startswith("language_table"):
+            ids.add(int(x.replace("language_table/video_", "").replace(".mp4", "")))
 
     # Convert the set of IDs to a TensorFlow constant for efficient comparison
     ids_tensor = tf.constant(list(ids), dtype=tf.int64)
