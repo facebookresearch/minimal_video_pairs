@@ -11,7 +11,7 @@ A shortcut-aware benchmark for spatio-temporal and intuitive physics video under
 
 #### Environment Setup
 
-To enable [reproducible](/reproducibility.md) evaluation, we utilize the [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) library, which is referenced as a submodule. First clone this repo using the flag `--recurse-submodules` which will automatically setup the required sumbodules. Alternatively, you will need to manually run `git sumbodule init` after cloning.
+To enable [reproducible](/reproducibility.md) evaluation, we utilize the [lmms-eval](https://github.com/EvolvingLMMs-Lab/lmms-eval) library, which is referenced as a submodule. First clone this repo using the flag `--recurse-submodules` which will automatically setup the required submodules. Alternatively, you will need to manually run `git submodule init` after cloning.
 
 Next, navigate into the root directory of the repository and create your conda environment,
 ```
